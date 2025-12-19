@@ -11,16 +11,18 @@ import fontTools.fontBuilder
 import fontTools.pens.ttGlyphPen
 import fontTools.ttLib.tables._g_l_y_f
 
-#-----------------edit font preferences here----------------
-letter_spacing = 1  #Number of pixels between each letter
-chatbox_height = 12 #Amount of height space for each letter
-#-----------------------------------------------------------
+#----------edit font preferences here---------
+letter_spacing = 2  #Number of pixels between each letter
+chatbox_height = 38 #Amount of height space for each letter
+#---------------------------------------------
 
 def main():
     latest = get_latest()
     name = latest['id']
     meta_url = latest['url']
     cached_path = f'cache/minecraft-{name}.jar'
+    
+    print("USING JAR", cached_path)
     if not os.path.exists(cached_path):
         print(f'Downloading minecraft jar {name}...')
         response = requests.get(meta_url)
@@ -154,6 +156,7 @@ def convert_font(name: str, entry: str, jar: zipfile.ZipFile, created_date: date
                 fonts['Bold Italic'][char] = {'width': (width + 1) * pixel_scale, 'height': 0, 'path': None}
         elif provider['type'] == 'bitmap':
             (img, date) = read_image(jar, provider['file'])
+            print("Loaded image with dimensions", img.size)
             if date > modified_date:
                 modified_date = date
             height = provider.get('height', 8)
