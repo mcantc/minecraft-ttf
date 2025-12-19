@@ -16,9 +16,9 @@ These TTFs can be imported back into Minecraft with a `ttf` provider, and perfec
 
 ***
 made this so i could make fonts for my kobo libra2's koreader's ui lol <br>
-i just added some notes and instructions - so someone like me, who hasnt touched programming or python before, could understand this up to some point 😗
+i just added some notes and instructions - so someone like me, who hasnt touched programming or python before, could understand this somehow 😗
 
-## using python
+## using the python script
 
 1. install python 3.11.x from (https://python.org/downloads/windows) <br>***(from the stuff i've found, it said it needed python 3.13, but 3.11.9 worked for me anyways)***
 > make sure u've checked
