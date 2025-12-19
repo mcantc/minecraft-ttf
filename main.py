@@ -11,6 +11,10 @@ import fontTools.fontBuilder
 import fontTools.pens.ttGlyphPen
 import fontTools.ttLib.tables._g_l_y_f
 
+#-----------------edit font preferences here----------------
+letter_spacing = 2  #Number of pixels between each letter
+chatbox_height = 20 #Amount of height space for each letter
+#-----------------------------------------------------------
 
 def main():
     latest = get_latest()
@@ -111,9 +115,8 @@ def convert_font(name: str, entry: str, jar: zipfile.ZipFile, created_date: date
         index += 1
     seen_chars = set()
     fonts = {'Regular': {}, 'Bold': {}, 'Italic': {}, 'Bold Italic': {}}
-    chatbox_height = 12
     font_em = 1200
-    pixel_scale = font_em / chatbox_height
+    pixel_scale = font_em / chatbox_height 
     def add_bitmap_glyph(char: str, mask: pygame.mask.Mask, height: int, ascent: int):
         m_width, m_height = mask.get_size()
         seen_chars.add(char)
@@ -127,7 +130,7 @@ def convert_font(name: str, entry: str, jar: zipfile.ZipFile, created_date: date
         (italic_path, (iw, ih)) = vectorize(mask, scale, italic_offset, italic=True)
         (bold_path, (bw, bh)) = vectorize(bold_mask, scale, offset)
         (bold_italic_path, (biw, bih)) = vectorize(bold_mask, scale, italic_offset, italic=True)
-        add_width = m_height / height
+        add_width = letter_spacing * m_height / height 
         fonts['Regular'][char] = {'width': (w + add_width) * scale, 'height': h * scale, 'path': path}
         fonts['Italic'][char] = {'width': (iw + add_width) * scale, 'height': ih * scale, 'path': italic_path}
         fonts['Bold'][char] = {'width': (bw + add_width) * scale, 'height': bh * scale, 'path': bold_path}
