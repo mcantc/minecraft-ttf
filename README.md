@@ -1,7 +1,7 @@
 ## Choosing your target font
-Replace '\assets\minecraft\textures\font\ascii.png' to your texture pack's desired font texture (has to also be "ascii.png")
-Open '\cache\minecraft.jar' with 7zip
-Change lines '114' and '130 's' values for font formatting preferences (letter spacing and height)
+Replace `\assets\minecraft\textures\font\ascii.png` to your texture pack's desired font texture (must also be "ascii.png")
+Open `\cache\minecraft.jar` with 7zip
+Change lines `114` and `130 's` values for font formatting preferences (letter spacing and height)
 
 
 ### Minecraft TTF
