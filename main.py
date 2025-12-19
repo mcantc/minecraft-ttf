@@ -12,8 +12,8 @@ import fontTools.pens.ttGlyphPen
 import fontTools.ttLib.tables._g_l_y_f
 
 #-----------------edit font preferences here----------------
-letter_spacing = 2  #Number of pixels between each letter
-chatbox_height = 20 #Amount of height space for each letter
+letter_spacing = 1  #Number of pixels between each letter
+chatbox_height = 12 #Amount of height space for each letter
 #-----------------------------------------------------------
 
 def main():
